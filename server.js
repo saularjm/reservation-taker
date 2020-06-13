@@ -32,6 +32,19 @@ let data = {
     ]
 };
 
+//Basic route that sends the user first to the AJAX page
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "home.html"));
+});
+//route to tables html when tables button is pressed
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+//route to reserve html when reserve table button is pressed
+app.get("/reserve", function(req, res) {
+  res.sendFile(path.join(__dirname, "reserve.html"));
+});
+
 // Route for table data JSON
 app.get("/api/tables", function(req, res) {
     return res.json(data);
