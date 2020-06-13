@@ -61,7 +61,14 @@
     </div>
   </div>
 </div>
-  
-
+<script type="text/javascript">
+  $.get("/api/tables", function(data) {
+    console.log(data)
+    const reservations = data.reservations.uniqueID;
+    const waitlist = data.waitlist.uniqueID;
+    //console.log(reservations);
+    //console.log(waitlist);
+  })
+</script>
 </body>
 </html>
