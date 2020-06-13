@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <title>Hot Table - Tables</title>
   <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
   <!--Container with Jumbotron-->
   <div class="container">
@@ -45,26 +44,16 @@
 <div class="container">
   <div class="row">
     <div class="card col-10 mx-auto" style="margin-bottom: 25px">
-      <div class="card-header">
+      <div class="card-header res">
         Current Reservations
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"></li>
-        
-      </ul>
-    </div>
 
     <div class="card col-10 mx-auto">
-      <div class="card-header">
+      <div class="card-header wait">
         Waitlist
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"></li>
-        
-      </ul>
     </div>
   </div>
-</div>
   
 <div class="container">
   <div class="row">
@@ -73,5 +62,35 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $.get("/api/tables", function (data) {
+    console.log(data)
+    const reservations = data.reservations;
+    const waitlist = data.waitList;
+
+    let reservDiv = $(".res");
+    let waitDiv = $(".wait");
+
+    for (let i = 0; i < reservations.length; i++) {
+
+      const reservUl = $("<ul>").addClass("list-group");
+      reserDiv.append(reservUl);
+
+      const reservLi = $("<li>").addClass("list-group-item").text(reservations[i].uniqueID);
+      reservUl.append(reservLi);
+
+    }
+
+    for (let i = 0; i < waitlist.length; i++) {
+
+      const waistUl = $("<ul>").addClass("list-group");
+      waitDiv.append(waistUl);
+
+      const reservLi = $("<li>").addClass("list-group-item").text(waitlist[i].uniqueID);
+      reservUl.append(reservLi);
+
+    }
+  });
+</script>
 </body>
 </html>
