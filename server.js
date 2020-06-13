@@ -67,8 +67,10 @@ app.post("/api/tables", function(req, res) {
   
     if (data.reservations.length < 5) {
         data.reservations.push(newRes);
+        res.json(true);
     } else {
         data.waitList.push(newRes);
+        res.json(false);
     }
   
     res.json(data);
