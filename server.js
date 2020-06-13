@@ -72,8 +72,6 @@ app.post("/api/tables", function(req, res) {
         data.waitList.push(newRes);
         res.json(false);
     }
-  
-    res.json(data);
   });
 
 
