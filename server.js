@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 // DATA
 let data = {
-    reservations = [
+    reservations: [
         {
             name: "test name",
             phone: "555-867-5309",
@@ -22,7 +22,7 @@ let data = {
             uniqueID: ""
         }
     ],
-    waitList = [
+    waitList: [
         {
             name: "test name2",
             phone: "555-555-5555",
@@ -67,8 +67,10 @@ app.post("/api/tables", function(req, res) {
   
     if (data.reservations.length < 5) {
         data.reservations.push(newRes);
+        res.json(true);
     } else {
         data.waitList.push(newRes);
+        res.json(false);
     }
   
     res.json(data);
