@@ -19,7 +19,7 @@ let data = {
             name: "test name",
             phone: "555-867-5309",
             email: "test@test.com",
-            uniqueID: this.name
+            uniqueID: ""
         }
     ],
     waitList = [
@@ -27,7 +27,7 @@ let data = {
             name: "test name2",
             phone: "555-555-5555",
             email: "wait@wait.com",
-            uniqueID: this.name
+            uniqueID: ""
         }
     ]
 };
