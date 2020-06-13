@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+// Dependencies
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
 
-<head>
-  <meta charset="UTF-8">
-  <title>Star Wars - Express</title>
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+// Sets up the Express App
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-</head>
+// Sets up the Express app to handle data parsing and link external JS
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "/public")));
+
+
+
+
+// Starts the server to begin listening
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
