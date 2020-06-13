@@ -74,7 +74,7 @@
     for (let i = 0; i < reservations.length; i++) {
 
       const reservUl = $("<ul>").addClass("list-group");
-      reserDiv.append(reservUl);
+      reservDiv.append(reservUl);
 
       const reservLi = $("<li>").addClass("list-group-item").text(reservations[i].uniqueID);
       reservUl.append(reservLi);
@@ -83,11 +83,11 @@
 
     for (let i = 0; i < waitlist.length; i++) {
 
-      const waistUl = $("<ul>").addClass("list-group");
-      waitDiv.append(waistUl);
+      const waitUl = $("<ul>").addClass("list-group");
+      waitDiv.append(waitUl);
 
-      const reservLi = $("<li>").addClass("list-group-item").text(waitlist[i].uniqueID);
-      reservUl.append(reservLi);
+      const waitLi = $("<li>").addClass("list-group-item").text(waitlist[i].uniqueID);
+      waitUl.append(waitLi);
 
     }
   });
